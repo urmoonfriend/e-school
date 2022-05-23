@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+</head>
+<body>
+<form action="#" th:action="@{/pupil-create}" th:object="${pupil}" method="post">
+    <label for="first_name">Имя</label>
+    <input type="text" th:field="*{first_name}" id="first_name" placeholder="Имя">
+    <label for="last_name">Фамилия</label>
+    <input type="text" th:field="*{last_name}" id="last_name" placeholder="Фамилия">
+    <input type="submit" value="Создать">
+</form>
+</body>
+</html>

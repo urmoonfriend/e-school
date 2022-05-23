@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<div th:switch="${pupils}">
+    <h2 th:case="null">No pupils found!</h2>
+    <div th:case="*">
+        <h2>Ученики</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pupil : ${pupils}">
+                <td th:text="${pupil.id}"></td>
+                <td th:text="${pupil.first_name}"></td>
+                <td th:text="${pupil.last_name}"></td>
+                <td><a th:href="@{pupil-delete/{id}(id=${pupil.id})}">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/pupil-create">Добавить</a></p>
+</div>
+</body>
+</html>
